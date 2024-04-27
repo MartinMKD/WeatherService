@@ -1,7 +1,3 @@
-ThisBuild / version := "0.1.0-SNAPSHOT"
-
-ThisBuild / scalaVersion := "2.13.13"
-
 val Http4sVersion = "0.23.26"
 val CirceVersion = "0.14.6"
 val CirceGenericExtrasVersion = "0.14.3"
