@@ -10,6 +10,7 @@ import org.http4s.circe.{jsonEncoderOf, jsonOf}
 
 object SimpleWeatherModel {
   sealed trait WeatherFeelsLike extends EnumEntry
+  
   object WeatherFeelsLike extends Enum[WeatherFeelsLike] with CirceEnum[WeatherFeelsLike] {
     case object Cold     extends WeatherFeelsLike
     case object Hot      extends WeatherFeelsLike
@@ -30,9 +31,10 @@ object SimpleWeatherModel {
                                      )
   object SimpleWeatherModel {
     implicit val encoder: Encoder[SimpleWeatherModel] = deriveEncoder[SimpleWeatherModel]
-    implicit val entityEncoder: EntityEncoder[IO, SimpleWeatherModel] = jsonEncoderOf
     implicit val decoder: Decoder[SimpleWeatherModel] = deriveDecoder[SimpleWeatherModel]
+
     implicit val entityDecoder: EntityDecoder[IO, SimpleWeatherModel] = jsonOf
+    implicit val entityEncoder: EntityEncoder[IO, SimpleWeatherModel] = jsonEncoderOf
   }
 
   implicit class WeatherResOps(weatherRes: OneCallRootElement) {

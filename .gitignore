@@ -1,4 +1,7 @@
 # Project exclude paths
+.DS_Store
+.bsp/
+.idea/
 /project/project/target/
 /project/target/
 /target/
