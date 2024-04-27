@@ -10,6 +10,7 @@ val LogbackVersion = "1.5.6"
 val MunitCatsEffectVersion = "1.0.7"
 val ScalaLoggingVersion = "3.9.5"
 val PureConfigVersion = "0.17.6"
+val EnumeratumVersion = "1.7.3"
 
 lazy val root = (project in file("."))
   .settings(
@@ -25,12 +26,13 @@ lazy val root = (project in file("."))
       "io.circe" %% "circe-generic" % CirceVersion,
       "io.circe" %% "circe-generic-extras" % CirceGenericExtrasVersion,
       "com.github.pureconfig" %% "pureconfig" % PureConfigVersion,
-      "com.beachape"        %% "enumeratum"          % "1.7.3",
-      "com.beachape"        %% "enumeratum-circe"    % "1.7.3",
+      "com.beachape" %% "enumeratum" % EnumeratumVersion,
+      "com.beachape" %% "enumeratum-circe" % EnumeratumVersion,
       "org.scalameta" %% "munit" % MunitVersion % Test,
       "org.typelevel" %% "munit-cats-effect-3" % MunitCatsEffectVersion % Test,
       "com.typesafe.scala-logging" %% "scala-logging" % ScalaLoggingVersion,
       "ch.qos.logback" % "logback-classic" % LogbackVersion % Runtime,
+      "org.fusesource.jansi" % "jansi" % "2.4.1"
     ),
     addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.13.3" cross CrossVersion.full),
     addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
