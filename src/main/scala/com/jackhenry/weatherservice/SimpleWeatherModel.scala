@@ -18,7 +18,7 @@ object SimpleWeatherModel {
 
     val values: IndexedSeq[WeatherFeelsLike] = findValues
 
-    def fromTemp(temp: Double): WeatherFeelsLike =
+    def temperatureLabel(temp: Double): WeatherFeelsLike =
       if (temp < 50) Cold
       else if (temp > 80) Hot
       else Moderate
@@ -40,7 +40,7 @@ object SimpleWeatherModel {
   implicit class WeatherResOps(weatherRes: OneCallRootElement) {
     def toSimpleWeatherModel: SimpleWeatherModel = SimpleWeatherModel(
       condition = weatherRes.current.weather.head.description,
-      feelsLike = WeatherFeelsLike.fromTemp(weatherRes.current.temp),
+      feelsLike = WeatherFeelsLike.temperatureLabel(weatherRes.current.temp),
       alerts = weatherRes.alerts.map(_.description)
     )
   }

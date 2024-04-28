@@ -12,9 +12,7 @@ import pureconfig.ConfigSource
 import pureconfig.generic.auto._
 
 object WeatherServiceServer {
-  final case class AppConfig(appId: String,
-                             units: String,
-                             exclude: String)
+  final case class AppConfig(appId: String)
 
   def run[F[_]: Async: Network]: F[Nothing] = {
     for {

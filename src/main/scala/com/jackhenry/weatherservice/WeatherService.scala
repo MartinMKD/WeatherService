@@ -23,8 +23,8 @@ object WeatherService {
         Map(
           "lat"   -> lat.toString,
           "lon"   -> lon.toString,
-          "exclude" -> config.exclude,
-          "units" -> config.units,
+          "exclude" -> "hourly,daily,minutely",
+          "units" -> "imperial",
           "appid" -> config.appId
         )
       )
