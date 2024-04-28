@@ -2,7 +2,7 @@ package com.jackhenry.weatherservice
 
 import cats.effect.Sync
 import cats.implicits._
-import com.jackhenry.weatherservice.SimpleWeatherModel.WeatherResOps
+import com.jackhenry.weatherservice.JHAWeatherModel.WeatherResOps
 import io.circe.syntax.EncoderOps
 import org.http4s.HttpRoutes
 import org.http4s.circe.jsonEncoder
@@ -20,7 +20,7 @@ object WeatherServiceRoutes {
       case GET -> Root / "weather" :? LatQueryParam(lat) +& LonQueryParam(lon) =>
         W.getWeather(lat, lon).flatMap {
           openWeatherResult =>
-            val result = openWeatherResult.toSimpleWeatherModel
+            val result = openWeatherResult.toJHAWeatherModel
             Ok(result.asJson)
         }
     }
