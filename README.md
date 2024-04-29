@@ -14,5 +14,5 @@
 
   for pretty-printed JSON output.
   
-5. If you want to use your own OpenWeather API key, edit the parameters in
-  'WeatherService/src/main/resources/application.conf' or you can use mine.
+5. If you want to use your own OpenWeather API key, edit the 'app-id' parameter in
+  'WeatherService/src/main/resources/application.conf' or you can use the embedded one.
