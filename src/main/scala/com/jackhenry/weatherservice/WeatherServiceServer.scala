@@ -14,7 +14,7 @@ import pureconfig.generic.auto._
 object WeatherServiceServer {
   final case class AppConfig(appId: String)
 
-  def run[F[_]: Async: Network]: F[Nothing] = {
+  def run[F[_]: Async: Network : org.typelevel.log4cats.Logger]: F[Nothing] = {
     for {
       client <- EmberClientBuilder.default[F].build
       config <- Resource.eval(Sync[F].delay { ConfigSource.default.loadOrThrow[AppConfig] })

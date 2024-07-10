@@ -7,6 +7,7 @@ val MunitCatsEffectVersion = "1.0.7"
 val ScalaLoggingVersion = "3.9.5"
 val PureConfigVersion = "0.17.6"
 val EnumeratumVersion = "1.7.3"
+val Log4CatsVersion = "2.6.0"
 
 lazy val root = (project in file("."))
   .settings(
@@ -27,6 +28,8 @@ lazy val root = (project in file("."))
       "org.scalameta" %% "munit" % MunitVersion % Test,
       "org.typelevel" %% "munit-cats-effect-3" % MunitCatsEffectVersion % Test,
       "com.typesafe.scala-logging" %% "scala-logging" % ScalaLoggingVersion,
+      "org.typelevel" %% "log4cats-core"    %  Log4CatsVersion,
+      "org.typelevel" %% "log4cats-slf4j"    %  Log4CatsVersion,
       "ch.qos.logback" % "logback-classic" % LogbackVersion % Runtime,
       "org.fusesource.jansi" % "jansi" % "2.4.1"
     ),
